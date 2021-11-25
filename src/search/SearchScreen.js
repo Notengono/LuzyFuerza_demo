@@ -16,6 +16,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import GroupIcon from '@mui/icons-material/Group';
 import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -122,15 +123,17 @@ export const SearchScreen = ({ history }) => {
                                             <TableCell align="center">{row.lugar_nacimiento}</TableCell>
                                             <TableCell align="center">{row.fecha_nacimiento}</TableCell>
                                             <TableCell align="center">
-                                                <IconButton
-                                                    color="primary"
-                                                    size="small"
-                                                    type="submit"
-                                                    variant="outlined"
-                                                // onClick={handleSearch}
-                                                >
-                                                    <InfoIcon />
-                                                </IconButton >
+                                                <Link to={`./adherente/${row.id}`}>
+                                                    <IconButton
+                                                        color="primary"
+                                                        size="small"
+                                                        type="submit"
+                                                        variant="outlined"
+                                                    // onClick={handleSearch}
+                                                    >
+                                                        <InfoIcon />
+                                                    </IconButton >
+                                                </Link>
                                                 &nbsp;
                                                 <IconButton
                                                     color="secondary"

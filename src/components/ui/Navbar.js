@@ -10,22 +10,12 @@ import { styled } from "@mui/material/styles";
 
 import logo from '../../assets/logo_blanco.png'
 
-const styles = theme => ({
-    drawerPaper: { background: "blue" }
-});
-
-const useStyles = makeStyles(/*(theme) => */({
-    // offset: theme.mixins.toolbar,
-    // offset: '165px',
-    menuButton: { margigRight: '0.8em'/*theme.spacing(12) */ },
+const useStyles = makeStyles(({
+    menuButton: { margigRight: '0.8em' },
     title: { flexGrow: 1 },
-    papel: {
-        backgroundColor: '#1976d2'
-    }
 }))
 
 export const Navbar = () => {
-    const clases = styles();
     const classes = useStyles()
     const { user: { name }, dispatch } = useContext(AuthContext)
     const history = new useHistory();
@@ -38,19 +28,22 @@ export const Navbar = () => {
     }
 
     const handlePage = () => {
-        history.replace('search')
+        history.replace('/search')
     }
 
     const handleNewAfiliado = () => {
-        history.replace('afiliado')
+        history.replace('/afiliado')
     }
 
     const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
     return (
         <div>
             <AppBar position="fixed">
-                <Paper >
-                    <Toolbar className={clases.drawerPaper}>
+                <Paper
+                    sx={{
+                        backgroundColor: '#1976d2',
+                    }} >
+                    <Toolbar>
                         {/* className={classes.menuButton} */}
                         <IconButton edge="start"
                             className={classes.menuButton}
@@ -59,11 +52,14 @@ export const Navbar = () => {
                         </IconButton>
 
 
-
+                        {/* <Link to={"/search"}> */}
                         <Button variant="text" color="inherit"
-                            onClick={handlePage}>
+                            onClick={handlePage}
+                        >
                             Listado de Afiliados
                         </Button>
+                        {/* </Link> */}
+
                         <Button variant="text" color="inherit"
                             onClick={handleNewAfiliado} >
                             Nuevo Afiliado
@@ -76,7 +72,8 @@ export const Navbar = () => {
                             {/* {name} */}
                         </Typography>
 
-                        <IconButton sx={{ color: "inherit" }}>
+                        <IconButton sx={{ color: "inherit" }}
+                            onClick={handleLogout}>
                             {name}
                             <MoreVertIcon />
                         </IconButton>
