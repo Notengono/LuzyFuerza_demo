@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../auth/AuthContext'
 import { types } from '../../types/types'
 import { useForm } from '../../hooks/useForm'
+import logo from '../../assets/banners-web-grande.png'
 
 import {
     Button,
@@ -12,6 +13,7 @@ import {
 
 import { makeStyles } from '@mui/styles';
 import { styled } from "@mui/material/styles";
+import { Box } from '@mui/system'
 
 // const MyFormControl = styled(FormControl)((theme) => ({
 // }));
@@ -69,13 +71,37 @@ export const LoginScreen = ({ history }) => {
     }
     return (
         <div>
-            <h1>Login</h1>
-            <hr />
-
+            {/* <h1>Login</h1> */}
             <Grid container
+                alignItems="center"
                 justifyContent="center"
-                alignItems="stretch">
-                <Grid item xs={6}>
+                sx={{
+                    // backgroundColor: '#ffe352',
+                    backgroundColor: '#1976d2',
+                }}
+            >
+                <img src={logo} />
+            </Grid>
+            <hr />
+            
+            <Box
+                sx={{
+                    mx: 'auto',
+                    width: '35%',
+                    p: 12,
+                }}
+            >
+                {/* Centered element */}
+                <Grid container
+                    justifyContent="center"
+                    alignItems="stretch"
+                >
+                    {/* <Grid
+                        container
+                        xs={6}
+                        justifyContent="center"
+                        alignItems="stretch"
+                    > */}
                     <FormControl fullWidth >
                         <InputLabel htmlFor="standard-adornment-nombre">Nombre usuario</InputLabel>
                         <Input
@@ -103,7 +129,7 @@ export const LoginScreen = ({ history }) => {
                         />
                     </FormControl>
                     <Button
-                        className={classes.root}
+                        // className={classes.root}
                         variant="contained"
                         color="primary"
                         onClick={handleLogin}
@@ -111,7 +137,8 @@ export const LoginScreen = ({ history }) => {
                         Login
                     </Button>
                 </Grid>
-            </Grid>
+                {/* </Grid> */}
+            </Box>
         </div>
     )
 }

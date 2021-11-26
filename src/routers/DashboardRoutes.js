@@ -7,6 +7,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { SearchScreen } from '../search/SearchScreen'
 import { AfiliadoScreen } from '../components/AfiliadoScreen'
 import { AdherenteScreen } from '../components/afiliado/AdherenteScreen'
+import { AfiliadoInformacionScreen } from '../components/afiliado/AfiliadoInformacionScreen'
 // import Menu from '../components/ui/menu'
 // import UserMenu from '../components/ui/user_menu'
 
@@ -20,6 +21,7 @@ export const DashboardRoutes = () => {
                 <Switch>
                     {/* <Route exact path="/marvel" component={MarvelScreen} />
                     <Route exact path="/hero/:heroeId" component={HeroScreen} /> */}
+                    <Route exact path="/informacion/:id" component={AfiliadoInformacionScreen} />
                     <Route exact path="/adherente/:id" component={AdherenteScreen} />
                     <Route exact path="/afiliado" component={AfiliadoScreen} />
                     <Route exact path="/search" component={SearchScreen} />

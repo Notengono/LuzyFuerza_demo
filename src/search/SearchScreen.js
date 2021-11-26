@@ -123,7 +123,7 @@ export const SearchScreen = ({ history }) => {
                                             <TableCell align="center">{row.lugar_nacimiento}</TableCell>
                                             <TableCell align="center">{row.fecha_nacimiento}</TableCell>
                                             <TableCell align="center">
-                                                <Link to={`./adherente/${row.id}`}>
+                                                <Link to={`./informacion/${row.id}`}>
                                                     <IconButton
                                                         color="primary"
                                                         size="small"
@@ -135,15 +135,17 @@ export const SearchScreen = ({ history }) => {
                                                     </IconButton >
                                                 </Link>
                                                 &nbsp;
-                                                <IconButton
-                                                    color="secondary"
-                                                    size="small"
-                                                    type="submit"
-                                                    variant="outlined"
-                                                // onClick={handleSearch}
-                                                >
-                                                    <GroupAddIcon />
-                                                </IconButton >
+                                                <Link to={`./adherente/${row.id}`}>
+                                                    <IconButton
+                                                        color="secondary"
+                                                        size="small"
+                                                        type="submit"
+                                                        variant="outlined"
+                                                    // onClick={handleSearch}
+                                                    >
+                                                        <GroupAddIcon />
+                                                    </IconButton >
+                                                </Link>
                                                 &nbsp;
                                                 <IconButton
                                                     color="success"
